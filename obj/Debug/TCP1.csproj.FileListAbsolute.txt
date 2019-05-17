@@ -1,0 +1,10 @@
+C:\Users\jeny_\source\repos\TCP1\TCP1\bin\Debug\TCP1.exe.config
+C:\Users\jeny_\source\repos\TCP1\TCP1\bin\Debug\TCP1.exe
+C:\Users\jeny_\source\repos\TCP1\TCP1\bin\Debug\TCP1.pdb
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.csprojAssemblyReference.cache
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.Properties.Resources.resources
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.csproj.GenerateResource.cache
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.csproj.CoreCompileInputs.cache
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.exe
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.pdb
+C:\Users\jeny_\source\repos\TCP1\TCP1\obj\Debug\TCP1.CalculationForm.resources
