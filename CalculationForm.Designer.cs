@@ -84,10 +84,12 @@
             // 
             // InfoBox
             // 
+            this.InfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InfoBox.Location = new System.Drawing.Point(12, 222);
             this.InfoBox.Multiline = true;
             this.InfoBox.Name = "InfoBox";
             this.InfoBox.ReadOnly = true;
+            this.InfoBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.InfoBox.Size = new System.Drawing.Size(358, 319);
             this.InfoBox.TabIndex = 4;
             this.InfoBox.TabStop = false;

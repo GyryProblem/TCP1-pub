@@ -33,11 +33,11 @@ namespace TCP1
         {
             while (RgABox.Text.Length < 8)
             {
-                RgABox.Text = RgABox.Text + '0';
+                RgABox.Text = '0' + RgABox.Text;
             }
             while (RgBBox.Text.Length < 8)
             {
-                RgBBox.Text = RgBBox.Text + '0';
+                RgBBox.Text = '0' + RgBBox.Text;
             }
         }
 
@@ -81,7 +81,7 @@ namespace TCP1
             InfoBox.Text = InfoBox.Text + "Operation +" + "\r\n" + "\r\n";
             Calculations.Copy(RgABox.Text);
             Calculations.Copy(RgBBox.Text);
-            int[] check = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0};
+            int[] check = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
             if ((Calculations.rg_a[0] == 1)&&(!Equals(Calculations.rg_a, check)))
             {
                 Calculations.Inverse(Calculations.rg_a);
@@ -90,7 +90,7 @@ namespace TCP1
             {
                 Calculations.Inverse(Calculations.rg_b);
             }
-            Calculations.Operation();
+            Plus();
             if (!Calculations.overflow)
             {
                 for (int i = 0; i < 8; i++)
@@ -107,6 +107,67 @@ namespace TCP1
                 InfoBox.Text = InfoBox.Text + "Возникло переполнение!";
             }
         }
+
+        public void Plus()
+        {
+            Calculations.rg_c = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            Calculations.overflow = false;
+            int ct = 7;
+            Calculations.tg_p = 0;
+            Calculations.step = 1;
+            do
+            {
+                int summ = 1;
+                InfoBox.Text = InfoBox.Text + "Сложение в сумматоре от " + ct + " до " + (ct - 3) + ": " + "\r\n";
+                do
+                {
+                    InfoBox.Text = InfoBox.Text + "Step: " + Calculations.step + "\r\n";
+                    InfoBox.Text = InfoBox.Text + "TgP: " + Calculations.tg_p + "\r\n";
+                    InfoBox.Text = InfoBox.Text + "RgC: ";
+                    for (int i = 0; i < 8; i++)
+                    {
+                        InfoBox.Text = InfoBox.Text + Calculations.rg_c[i];
+                        if (i == 0)
+                        {
+                            InfoBox.Text = InfoBox.Text + ',';
+                        }
+                    }
+                    InfoBox.Text = InfoBox.Text + "\r\n" + "\r\n";
+                    Calculations.rg_c[ct] = Calculations.rg_a[ct] + Calculations.rg_b[ct] + Calculations.tg_p;
+                    if (Calculations.rg_c[ct] > 1)
+                    {
+                        if (ct == 0)
+                        {
+                            if (Calculations.tg_p == 0)
+                            {
+                                Calculations.overflow = true;
+                            }
+                        }
+                        Calculations.tg_p = 1;
+                        Calculations.rg_c[ct] = Calculations.rg_c[ct] - 2;
+                    }
+                    else
+                    {
+                        if (ct == 0)
+                        {
+                            if (Calculations.tg_p == 1)
+                            {
+                                Calculations.overflow = true;
+                            }
+                        }
+                        Calculations.tg_p = 0;
+                    }
+                    ct--;
+                    summ--;
+                    Calculations.step++;
+                } while (summ >= 0);
+            } while (ct >= 0);
+            if ((Calculations.rg_c[0] == 1) && (!Calculations.overflow))
+            {
+                Calculations.Inverse(Calculations.rg_c);
+            }
+        }
+
 
         private void OperatonMinus_Click(object sender, EventArgs e)
         {
@@ -153,7 +214,7 @@ namespace TCP1
             {
                 Calculations.rg_b[0] = 0;
             }
-            Calculations.Operation();
+            Plus();
             if (!Calculations.overflow)
             {
                 for (int i = 0; i < 8; i++)

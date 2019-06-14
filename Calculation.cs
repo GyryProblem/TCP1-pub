@@ -27,6 +27,8 @@ namespace TCP1
         public static bool count = false;
         public static int[] rg_c = new int[8];
         public static bool overflow = false;
+        public static int step;
+        public static int tg_p;
 
         public static void Inverse(int[] rg) //Перевод числа в дополнительный код
         {
@@ -69,47 +71,6 @@ namespace TCP1
                     rg_b[i] = Convert.ToInt16(copy_str[i]) - 48;
                 }
                 count = false;
-            }
-        }
-        public static void Operation() //Сложение двух 8-ми разрядных чисел для 8-ми разрядного сумматора
-        {
-            rg_c = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
-            overflow = false;
-            int ct = 7;
-            int tg_p = 0;
-            int step = 1;
-            do
-            {
-                rg_c[ct] = rg_a[ct] + rg_b[ct] + tg_p;
-                if (rg_c[ct] > 1)
-                {
-                    if (ct == 0)
-                    {
-                        if (tg_p == 0)
-                        {
-                            overflow = true;
-                        }
-                    }
-                    tg_p = 1;
-                    rg_c[ct] = rg_c[ct] - 2;
-                }
-                else
-                {
-                    if (ct == 0)
-                    {
-                        if (tg_p == 1)
-                        {
-                            overflow = true;
-                        }
-                    }
-                    tg_p = 0;
-                }
-                ct--;
-                step++;
-            } while (ct >= 0);
-            if ((rg_c[0] == 1)&&(!overflow))
-            {
-                Inverse(rg_c);
             }
         }
     }
