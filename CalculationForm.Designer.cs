@@ -43,7 +43,7 @@
             // 
             this.RgBBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RgBBox.Location = new System.Drawing.Point(12, 114);
-            this.RgBBox.MaxLength = 8;
+            this.RgBBox.MaxLength = 16;
             this.RgBBox.Name = "RgBBox";
             this.RgBBox.Size = new System.Drawing.Size(358, 34);
             this.RgBBox.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             this.RgABox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RgABox.Location = new System.Drawing.Point(12, 45);
-            this.RgABox.MaxLength = 8;
+            this.RgABox.MaxLength = 16;
             this.RgABox.Name = "RgABox";
             this.RgABox.Size = new System.Drawing.Size(358, 34);
             this.RgABox.TabIndex = 0;

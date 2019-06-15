@@ -31,11 +31,11 @@ namespace TCP1
 
         private void Increase() //Заполнение до 8 разрядов 
         {
-            while (RgABox.Text.Length < 8)
+            while (RgABox.Text.Length < 16)
             {
                 RgABox.Text = '0' + RgABox.Text;
             }
-            while (RgBBox.Text.Length < 8)
+            while (RgBBox.Text.Length < 16)
             {
                 RgBBox.Text = '0' + RgBBox.Text;
             }
@@ -81,7 +81,7 @@ namespace TCP1
             InfoBox.Text = InfoBox.Text + "Operation +" + "\r\n" + "\r\n";
             Calculations.Copy(RgABox.Text);
             Calculations.Copy(RgBBox.Text);
-            int[] check = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
+            int[] check = new int[16] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if ((Calculations.rg_a[0] == 1)&&(!Equals(Calculations.rg_a, check)))
             {
                 Calculations.Inverse(Calculations.rg_a);
@@ -93,7 +93,7 @@ namespace TCP1
             Plus();
             if (!Calculations.overflow)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 16; i++)
                 {
                     RgCBox.Text = RgCBox.Text + Convert.ToString(Calculations.rg_c[i]);
                     if (i == 0)
@@ -110,21 +110,21 @@ namespace TCP1
 
         public void Plus()
         {
-            Calculations.rg_c = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            Calculations.rg_c = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             Calculations.overflow = false;
-            int ct = 7;
+            int ct = 15;
             Calculations.tg_p = 0;
             Calculations.step = 1;
             do
             {
-                int summ = 1;
+                int summ = 3;
                 InfoBox.Text = InfoBox.Text + "Сложение в сумматоре от " + ct + " до " + (ct - 3) + ": " + "\r\n";
                 do
                 {
                     InfoBox.Text = InfoBox.Text + "Step: " + Calculations.step + "\r\n";
                     InfoBox.Text = InfoBox.Text + "TgP: " + Calculations.tg_p + "\r\n";
                     InfoBox.Text = InfoBox.Text + "RgC: ";
-                    for (int i = 0; i < 8; i++)
+                    for (int i = 0; i < 16; i++)
                     {
                         InfoBox.Text = InfoBox.Text + Calculations.rg_c[i];
                         if (i == 0)
@@ -197,7 +197,7 @@ namespace TCP1
             InfoBox.Text = InfoBox.Text + "Operation -" + "\r\n" + "\r\n";
             Calculations.Copy(RgABox.Text);
             Calculations.Copy(RgBBox.Text);
-            int[] check = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
+            int[] check = new int[16] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if ((Calculations.rg_a[0] == 1) && (!Equals(Calculations.rg_a, check)))
             {
                 Calculations.Inverse(Calculations.rg_a);
@@ -217,7 +217,7 @@ namespace TCP1
             Plus();
             if (!Calculations.overflow)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 16; i++)
                 {
                     RgCBox.Text = RgCBox.Text + Convert.ToString(Calculations.rg_c[i]);
                     if (i == 0)
